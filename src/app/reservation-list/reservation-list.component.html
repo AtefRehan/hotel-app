@@ -1,0 +1,53 @@
+<app-home></app-home>
+
+
+<h2 class="text-center m-5">Reservation List</h2>
+
+
+<table class="table table-striped">
+  <thead>
+    <th>Guest Name</th>
+    <th>Guest Email</th>
+    <th>Room Number</th>
+    <th>Check-In</th>
+    <th>Check-Out</th>
+    <th>Actions</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let reservation of reservations">
+      <td>{{ reservation.guestName }}</td>
+      <td>{{ reservation.guestEmail }}</td>
+      <td>{{ reservation.roomNumber }}</td>
+      <td>{{ reservation.checkInDate }}</td>
+      <td>{{ reservation.checkOutDate }}</td>
+      <td>
+        <button class="btn btn-danger" (click)="deleteReservation(reservation.id)">
+          Delete
+        </button>
+        <button
+          class="btn btn-primary m-2"
+          [routerLink]="['/edit', reservation.id]"
+        >
+          Edit
+        </button>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+
+
+
+
+<ng-template #noReservation>
+  <!--this part will not render by default unless we call it using ngif in line 3-->
+
+  <!-- note that the ng-template is a container that will not render by default unless we call it using ngif in line 3 -->
+  <!-- note that  -->
+  <p class="text-center">No reservation available.</p>
+</ng-template>
+
+<div class="d-flex justify-content-center mt-4">
+  <button class="btn btn-success" [routerLink]="['/new']">Add reservation</button>
+</div>

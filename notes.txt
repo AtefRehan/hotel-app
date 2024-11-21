@@ -1,0 +1,7 @@
+Forms
+reactive Forms
+validations and validation messages
+
+<ng-template> this tag will not render unless we call it in ng if 
+
+How
